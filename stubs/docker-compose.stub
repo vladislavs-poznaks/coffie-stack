@@ -1,0 +1,33 @@
+version: '3.8'
+
+networks:
+  stack:
+    driver: bridge
+
+{{volumes}}
+
+services:
+  nginx:
+    build:
+      context: ./vendor/coffie/stack/.docker
+      dockerfile: nginx.dockerfile
+
+    {{depends}}
+
+    ports:
+      - '${APP_PORT:-80}:80'
+    volumes:
+      - .:/var/www/html
+    networks:
+      - stack
+
+  php:
+    build:
+      context: ./vendor/coffie/stack/.docker
+      dockerfile: php.8.0.dockerfile
+    volumes:
+      - .:/var/www/html
+    networks:
+      - stack
+
+{{services}}

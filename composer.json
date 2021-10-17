@@ -1,0 +1,38 @@
+{
+    "name": "coffie/stack",
+    "description": "Docker files for a Laravel application",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vladislavs Poznaks",
+            "email": "vladislavs.poznaks@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/contracts": "^8.0|^9.0",
+        "illuminate/console": "^8.0|^9.0",
+        "illuminate/support": "^8.0|^9.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "9.5.x-dev",
+        "orchestra/testbench": "6.x-dev"
+    },
+    "bin": [
+        "bin/stack"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Coffie\\Stack\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Coffie\\Stack\\StackServiceProvider"
+            ]
+        }
+    }
+}

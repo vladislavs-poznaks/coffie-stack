@@ -1,0 +1,6 @@
+FROM composer:2
+
+ENV COMPOSERUSER=stack
+ENV COMPOSERGROUP=stack
+
+RUN adduser -g ${COMPOSERGROUP} -s /bin/sh -D ${COMPOSERUSER}

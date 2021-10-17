@@ -1,0 +1,44 @@
+  composer:
+    build:
+      context: ./vendor/coffie/stack/.docker
+      dockerfile: composer.dockerfile
+    container_name: composer
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+    networks:
+      - stack
+
+  artisan:
+    build:
+      context: ./vendor/coffie/stack/.docker
+      dockerfile: php.8.0.dockerfile
+    container_name: artisan
+    working_dir: /var/www/html
+    entrypoint: ['php', 'artisan']
+    volumes:
+      - .:/var/www/html
+    networks:
+      - stack
+
+  phpunit:
+    build:
+      context: ./vendor/coffie/stack/.docker
+      dockerfile: php.8.0.dockerfile
+    container_name: phpunit
+    working_dir: /var/www/html
+    entrypoint: ['/vendor/bin/phpunit']
+    volumes:
+      - .:/var/www/html
+    networks:
+      - stack
+
+  npm:
+    image: node:13.7
+    container_name: npm
+    working_dir: /var/www/html
+    entrypoint: ['npm']
+    volumes:
+      - .:/var/www/html
+    networks:
+      - stack
