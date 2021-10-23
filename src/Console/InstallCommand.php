@@ -139,6 +139,7 @@ class InstallCommand extends Command
         $environment = str_replace('REDIS_HOST=127.0.0.1', 'REDIS_HOST=redis', $environment);
 
         file_put_contents($this->laravel->basePath('.env'), $environment);
+        file_put_contents($this->laravel->basePath('.env.example'), $environment);
     }
 
     protected function getVolumes(): string
