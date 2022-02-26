@@ -24,7 +24,7 @@ services:
   php:
     build:
       context: ./vendor/coffie/stack/.docker
-      dockerfile: php.8.0.dockerfile
+      dockerfile: php.8.1.dockerfile
     volumes:
       - .:/var/www/html
     networks:

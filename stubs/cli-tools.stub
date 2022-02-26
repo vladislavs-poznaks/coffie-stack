@@ -12,7 +12,7 @@
   artisan:
     build:
       context: ./vendor/coffie/stack/.docker
-      dockerfile: php.8.0.dockerfile
+      dockerfile: php.8.1.dockerfile
     container_name: artisan
     working_dir: /var/www/html
     entrypoint: ['php', 'artisan']
@@ -24,7 +24,7 @@
   phpunit:
     build:
       context: ./vendor/coffie/stack/.docker
-      dockerfile: php.8.0.dockerfile
+      dockerfile: php.8.1.dockerfile
     container_name: phpunit
     working_dir: /var/www/html
     entrypoint: ['./vendor/bin/phpunit']
